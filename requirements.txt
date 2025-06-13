@@ -1,0 +1,6 @@
+httpx 
+httpx[http2]
+parsel 
+jmespath 
+loguru
+playwright
