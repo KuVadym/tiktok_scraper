@@ -18,6 +18,7 @@ async def fetch_page_html(url: str) -> str:
         html = await page.content()
         await browser.close()
         return html
+    
 
 def parse_post(html: str) -> Dict:
     selector = Selector(text=html)
@@ -48,6 +49,19 @@ async def scrape_posts(urls: List[str]) -> List[Dict]:
         data.append(post_data)
     log.success(f"Scraped {len(data)} posts")
     return data
+
+
+async def scrap_necessary_data(data):
+    parsed_post_data = jmespath.search(
+    """{
+        video_url: video.playAddr,
+        views: stats.playCount,
+        likes: stats.diggCount,
+        comments: stats.commentCount
+    }""",
+    data
+)
+    return parsed_post_data
 
 # Run the scraper
 async def run():

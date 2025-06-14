@@ -14,8 +14,9 @@
 
 
 Запуск додатку
-python -m venv venv
-.\venv\Scripts\activate.ps1
-pip install -r requirements.txt
-playwright install
-python -m run     
+
+1. python -m venv venv
+2. .\venv\Scripts\activate.ps1
+3. pip install -r requirements.txt
+4. playwright install
+5. python -m run     
