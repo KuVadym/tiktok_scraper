@@ -1,16 +1,22 @@
 import csv
+import aiofiles
+import os
 from typing import List, Dict
 
-def save_posts_to_csv(posts: List[Dict], filename: str = "tiktok_posts.csv") -> None:
+async def save_posts_to_csv(posts: List[Dict], filename: str = "tiktok_posts.csv") -> None:
     if not posts:
         print("No posts to save.")
         return
 
     keys = posts[0].keys()
+    file_exists = os.path.isfile(filename)
 
-    with open(filename, mode="w", encoding="utf-8", newline="") as file:
-        writer = csv.DictWriter(file, fieldnames=keys)
-        writer.writeheader()
-        writer.writerows(posts)
+    async with aiofiles.open(filename, mode="a", encoding="utf-8", newline="") as file:
+        if not file_exists:
+            await file.write(','.join(keys) + '\n')
 
-    print(f"Saved {len(posts)} posts to {filename}")
+        for row in posts:
+            line = ','.join(str(row.get(k, "")) for k in keys)
+            await file.write(line + '\n')
+
+    print(f"Appended {len(posts)} posts to {filename}")

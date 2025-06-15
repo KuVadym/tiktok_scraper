@@ -3,7 +3,7 @@ import json
 from loguru import logger as log
 from typing import List, Dict
 from urllib.parse import quote
-from crate_browser_session import create_browser_with_session
+from browser import create_browser_with_session
 
 async def scrape_search(keyword: str, max_results: int = 20) -> List[Dict]:
     results = []

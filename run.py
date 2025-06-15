@@ -1,6 +1,6 @@
 import asyncio
 import json
-from scraper import scrape_posts
+from scraping import scrape_posts
 
 async def run():
     post_data = await scrape_posts(
