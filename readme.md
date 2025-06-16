@@ -50,7 +50,7 @@
 Опис проекту:
 
 Структтура:
-<pre><code>```text 
+<pre><code>
 project/
 │
 ├── run.py                 # Точка входу, запуск всіх корутин
@@ -59,7 +59,7 @@ project/
 ├── scraping.py             # Основна логіка скрейпінгу
 ├── config.py               # Конфігураційні параметри
 ├── data_processing.py      # Збір та збереження даних у CSV
-``` </code></pre>
+</code></pre>
 
 
 | Файл                    | Функція                                           | Опис                                                           |
@@ -97,7 +97,7 @@ project/
 
 
 3. Розбити великий utils.py на менші модулі
-<pre><code>```text 
+<pre><code> 
 utils/
 ├── selectors.py            # CSS/XPath селектори
 ├── logger.py               # логер
@@ -105,7 +105,7 @@ utils/
 ├── actions.py              # like, comment, scroll
 ├── extractors.py           # парсинг даних із сторінки
 ├── captcha.py              # обхід капчі
-``` </code></pre>
+</code></pre>
 
 4. Переписати під мікросервісну архітектуру
 ✅ Поділити логіку на окремі асинхронні сервіси або навіть процеси/контейнери:
