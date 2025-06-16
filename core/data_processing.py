@@ -1,12 +1,12 @@
 import asyncio
 import json
 from urllib.parse import quote
-from utils import get_video_duration, check_captcha, should_execute_event
-from utils import like_video, leave_comment, get_video_links, save_posts_to_csv
-from tik_tok_selectors import *
+from utils.utils import get_video_duration, check_captcha, should_execute_event
+from utils.utils import like_video, leave_comment, get_video_links, save_posts_to_csv
+from config.tik_tok_selectors import *
 import logging
-from config import *
-from scraping import scrap_necessary_data
+from config.config import *
+from utils.scraping import scrap_necessary_data
 from parsel import Selector
 
 

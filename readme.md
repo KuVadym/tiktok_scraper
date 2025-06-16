@@ -52,13 +52,15 @@
 Структтура:
 <pre><code>
 project/
-│
-├── run.py                 # Точка входу, запуск всіх корутин
-├── browser.py              # Створення браузера та контексту Playwright
-├── scraper_utils.py        # Робота зі сторінкою: капча, лайки, коментарі, інше
-├── scraping.py             # Основна логіка скрейпінгу
-├── config.py               # Конфігураційні параметри
-├── data_processing.py      # Збір та збереження даних у CSV
+├── core/
+│   ├── browser.py
+│   ├── data_processing.py
+├── utils/
+│   ├── utils.py
+│   ├── scraping.py
+├── config/
+│   ├── config.py
+├── run.py
 </code></pre>
 
 

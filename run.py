@@ -1,7 +1,9 @@
 import asyncio
-from browser import create_browser_with_session, apply_stealth
-from data_processing import search_links, watch_videos
-from config import max_results
+from core.browser import create_browser_with_session, apply_stealth
+from core.data_processing import search_links, watch_videos
+from config.config import max_results
+
+
 
 async def main():
     playwright, context = await create_browser_with_session()

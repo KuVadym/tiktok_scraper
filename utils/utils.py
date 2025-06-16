@@ -8,8 +8,8 @@ import logging
 from typing import List, Dict 
 from playwright.async_api import Page
 from playwright.async_api import TimeoutError as PlaywrightTimeout
-from config import LOG_DIR, IF_ERROR_DELAY, IF_ERROR_RETRIES
-from tik_tok_selectors import *
+from config.config import LOG_DIR, IF_ERROR_DELAY, IF_ERROR_RETRIES
+from config.tik_tok_selectors import *
 
 def should_execute_event(probability_percent: int) -> bool:
     return random.randint(1, 100) <= probability_percent

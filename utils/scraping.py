@@ -1,8 +1,8 @@
 import jmespath
-from typing import Dict
 
 
-async def scrap_necessary_data(data, href = None) -> Dict:
+
+async def scrap_necessary_data(data, href = None):
     parsed_post_data = jmespath.search(
     """{
         video_url: video.playAddr,
