@@ -1,6 +1,32 @@
 import json
 from playwright.async_api import async_playwright, BrowserContext
 
+
+async def apply_stealth(page):
+    await page.add_init_script("""
+    Object.defineProperty(navigator, 'webdriver', {
+        get: () => undefined
+    });
+
+    Object.defineProperty(navigator, 'languages', {
+        get: () => ['en-US', 'en']
+    });
+
+    Object.defineProperty(navigator, 'plugins', {
+        get: () => [1, 2, 3]
+    });
+
+    window.chrome = {
+        runtime: {}
+    };
+
+    const originalQuery = window.navigator.permissions.query;
+    window.navigator.permissions.query = (parameters) =>
+        parameters.name === 'notifications'
+            ? Promise.resolve({ state: Notification.permission })
+            : originalQuery(parameters);
+    """)
+
 async def create_browser_with_session(cookie_path: str = "tiktok_session.json"):
     """Створює persistent браузерний контекст з cookies і потрібними налаштуваннями."""
 
